@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 关键：禁止手机自适应缩放，保持固定宽度 -->
+    <meta name="viewport" content="width=900px, user-scalable=yes">
     <title>Yiwen Zhu - Academic Profile</title>
     <style>
         * {
@@ -16,8 +17,10 @@
             color: #000;
             line-height: 1.6;
             padding: 40px;
-            max-width: 900px;
+            /* 核心：固定宽度，不随屏幕变小而压缩 */
+            width: 900px !important;
             margin: 0 auto;
+            overflow-x: visible;
         }
         .header {
             text-align: center;
@@ -48,7 +51,7 @@
             margin-bottom: 4px;
         }
         a {
-            color: #0000EE;
+            color: #000;
             text-decoration: underline;
         }
         a:hover {
