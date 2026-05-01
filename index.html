@@ -51,6 +51,7 @@
         a {
             color: #0000EE !important;
             text-decoration: underline !important;
+            cursor: pointer;
         }
         a:hover {
             color: #551A8B !important;
@@ -78,7 +79,15 @@
             text-align: center;
             display: block;
         }
-        /* PDF 预览样式 */
+        /* 点击展开 CV 样式 */
+        .cv-wrapper {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.6s ease;
+        }
+        .cv-wrapper.show {
+            max-height: 1000px;
+        }
         .pdf-preview {
             width: 100%;
             height: 900px;
@@ -132,10 +141,20 @@
         </li>
         <li>
             <strong>Personal CV</strong><br>
-            <span class="center-link"><a href="https://github.com/Yiwen0805/Yiwen.github.io/raw/main/Yiwen_Zhu_CV_2026.pdf" target="_blank">https://github.com/Yiwen0805/Yiwen.github.io/raw/main/Yiwen_Zhu_CV_2026.pdf</a></span>
-            <!-- 直接嵌入显示 PDF -->
-            <embed class="pdf-preview" src="https://github.com/Yiwen0805/Yiwen.github.io/raw/main/Yiwen_Zhu_CV_2026.pdf" type="application/pdf">
+            <span class="center-link"><a id="cvClick">Click to View CV</a></span>
+            <div class="cv-wrapper" id="cvArea">
+                <embed class="pdf-preview" src="Yiwen_Zhu_CV_2026.pdf" type="application/pdf">
+            </div>
         </li>
     </ul>
+
+<script>
+    const cvClick = document.getElementById('cvClick');
+    const cvArea = document.getElementById('cvArea');
+    cvClick.addEventListener('click', function() {
+        cvArea.classList.toggle('show');
+        this.textContent = cvArea.classList.contains('show') ? 'Click to Hide CV' : 'Click to View CV';
+    });
+</script>
 </body>
 </html>
